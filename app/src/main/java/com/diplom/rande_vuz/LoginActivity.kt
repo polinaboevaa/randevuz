@@ -32,17 +32,11 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (!email_et.contains("+")) {
-                    Toast.makeText(this@LoginActivity, "Некорректный номер телефона", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
-
-            else {
-                if (!email_et.contains("@")) {
-                    Toast.makeText(this@LoginActivity, "Некорректный почтовый адрес", Toast.LENGTH_SHORT).show()
-                    return@setOnClickListener
-                }
+            if (!email_et.contains("@")) {
+                Toast.makeText(this@LoginActivity, "Некорректный почтовый адрес", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
 
             //добавить проверку пароля из базы данных
 

@@ -3,7 +3,6 @@ package com.diplom.rande_vuz
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.view.View
 import android.widget.Button
@@ -18,9 +17,10 @@ class BirthDateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_birth_date)
-        initDatePicker()
+
         dateButton = findViewById(R.id.datePickerButton)
         dateButton.text = getTodaysDate()
+        initDatePicker()
     }
 
     private fun getTodaysDate(): String {
@@ -32,25 +32,20 @@ class BirthDateActivity : AppCompatActivity() {
     }
 
     private fun initDatePicker() {
-        val dateSetListener = DatePickerDialog.OnDateSetListener { _, day, month, year ->
-            val adjustedMonth = month + 1 // Месяцы начинаются с 0
-            val date = makeDateString(day, adjustedMonth, year)
-            dateButton.text = date
-        }
-
         val cal = Calendar.getInstance()
         val day = cal.get(Calendar.DAY_OF_MONTH)
         val month = cal.get(Calendar.MONTH)
         val year = cal.get(Calendar.YEAR)
 
-        val style = AlertDialog.THEME_HOLO_LIGHT
-
-        datePickerDialog = DatePickerDialog(this, style, dateSetListener, year, month, day)
-        // datePickerDialog.datePicker.maxDate = System.currentTimeMillis() // Если нужно установить максимальную дату
+        datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
+            val adjustedMonth = selectedMonth + 1 // Месяцы начинаются с 0
+            val date = makeDateString(selectedDay, adjustedMonth, selectedYear)
+            dateButton.text = date
+        }, year, month, day)
     }
 
     private fun makeDateString(day: Int, month: Int, year: Int): String {
-        return "${getMonthFormat(month)} $day, $year"
+        return "$day/${getMonthFormat(month)}/$year"
     }
 
     private fun getMonthFormat(month: Int): String {
@@ -67,11 +62,13 @@ class BirthDateActivity : AppCompatActivity() {
             10 -> "октябрь"
             11 -> "ноябрь"
             12 -> "декабрь"
-            else -> "JAN"
+            else -> "январь"
         }
     }
 
     fun openDatePicker(view: View) {
         datePickerDialog.show()
     }
+
+
 }

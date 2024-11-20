@@ -4,32 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    >
+    tools:context=".LoginActivity">
 
 
-    <TextView
-        android:id="@+id/upper"
-        android:layout_width="500dp"
-        android:layout_height="422dp"
-        android:background="@drawable/upper"
-        android:text="ab"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-45dp"
-        tools:layout_editor_absoluteY="-66dp" />
+    <ImageView
+        android:id="@+id/image_back"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_back"/>
 
 
     <LinearLayout
         android:id="@+id/email_lin"
-        android:layout_width="354dp"
-        android:layout_height="417dp"
-        android:layout_marginStart="24dp"
-        android:background="@drawable/login_back"
+        android:layout_width="0dp"
+        android:layout_height="312dp"
+        android:layout_marginTop="130dp"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="133dp">
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
 
         <TextView
             android:id="@+id/textLogin"
@@ -38,31 +36,30 @@
             android:fontFamily="@font/adigiana_ultra"
             android:text="Вход"
             android:textColor="#243B65"
-            android:textSize="60sp"
+            android:textSize="50sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.276"
 
             />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="20dp" />
 
         <EditText
             android:id="@+id/email"
-            android:layout_width="260dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
+            android:background="@drawable/upper"
             android:hint="Телефон/email"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textColor="#243B65"
-            android:textColorHint="#F46174"
-            android:textColorLink="#F46174" />
+            android:paddingStart="20dp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <Space
             android:layout_width="match_parent"
@@ -70,14 +67,15 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="260dp"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/upper"
             android:hint="Пароль"
             android:inputType="textPassword"
             android:minHeight="48dp"
-            android:textColor="#243B65"
-            android:textColorHint="#F46174"
-            android:textColorLink="#F46174" />
+            android:paddingStart="20dp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry" />
 
         <Space
             android:layout_width="match_parent"
@@ -85,29 +83,21 @@
 
         <Button
             android:id="@+id/regbutton"
+            style="@style/CustomButtonStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            style="@style/CustomButtonStyle"
             android:text="Войти"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textSize="18sp" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="470dp"
-        android:layout_height="175dp"
-        android:background="@drawable/down"
-        android:text="a"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-30dp"
-        tools:layout_editor_absoluteY="644dp" />
-
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout_to_reg"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_lin">
@@ -125,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:text="Зарегестрироваться"
+            android:text="Зарегистрироваться"
             android:textAllCaps="false"
             android:textColor="#F46174"
             android:textSize="15sp" />
