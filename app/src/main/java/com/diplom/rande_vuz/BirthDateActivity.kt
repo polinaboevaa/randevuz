@@ -6,12 +6,16 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
+import android.content.Intent // Импортируем Intent
 import java.util.Calendar
 
 class BirthDateActivity : AppCompatActivity() {
 
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var dateButton: Button
+    private lateinit var nextButton: Button // Объявляем переменную для кнопки "next"
+    private var selectedDate: String? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,16 +23,17 @@ class BirthDateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_birth_date)
 
         dateButton = findViewById(R.id.datePickerButton)
-        dateButton.text = getTodaysDate()
+        val nextButton = findViewById<Button>(R.id.next_btn)
         initDatePicker()
-    }
 
-    private fun getTodaysDate(): String {
-        val cal = Calendar.getInstance()
-        val year = cal.get(Calendar.YEAR)
-        val month = cal.get(Calendar.MONTH) + 1 // Месяцы начинаются с 0
-        val day = cal.get(Calendar.DAY_OF_MONTH)
-        return makeDateString(day, month, year)
+        nextButton.setOnClickListener {
+            if (selectedDate != null) {
+                val intent = Intent(this, WhereStudyActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Дата не выбрана", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun initDatePicker() {
@@ -38,9 +43,9 @@ class BirthDateActivity : AppCompatActivity() {
         val year = cal.get(Calendar.YEAR)
 
         datePickerDialog = DatePickerDialog(this, { _, selectedYear, selectedMonth, selectedDay ->
-            val adjustedMonth = selectedMonth + 1 // Месяцы начинаются с 0
-            val date = makeDateString(selectedDay, adjustedMonth, selectedYear)
-            dateButton.text = date
+            val adjustedMonth = selectedMonth + 1
+            selectedDate = makeDateString(selectedDay, adjustedMonth, selectedYear)
+            dateButton.text = selectedDate
         }, year, month, day)
     }
 
@@ -69,6 +74,4 @@ class BirthDateActivity : AppCompatActivity() {
     fun openDatePicker(view: View) {
         datePickerDialog.show()
     }
-
-
 }
