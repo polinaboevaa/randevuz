@@ -20,8 +20,9 @@ class WhereStudyActivity : AppCompatActivity() {
 
             if (name.isEmpty()) {
                 Toast.makeText(this, "Поле не должно быть пустым", Toast.LENGTH_SHORT).show()
-            } else {
-                startActivity(Intent(this, BirthDateActivity::class.java))
+            }
+            else {
+                startActivity(Intent(this, AfterRegistrationActivity::class.java))
             }
         }
     }

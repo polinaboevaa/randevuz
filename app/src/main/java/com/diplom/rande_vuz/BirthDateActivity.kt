@@ -14,7 +14,7 @@ class BirthDateActivity : AppCompatActivity() {
 
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var dateButton: Button
-    private lateinit var nextButton: Button // Объявляем переменную для кнопки "next"
+    private lateinit var nextButton: Button
     private var selectedDate: String? = null
 
     @SuppressLint("MissingInflatedId")

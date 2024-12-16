@@ -36,6 +36,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this@LoginActivity, "Некорректный почтовый адрес", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            else {
+                startActivity(Intent(this, AfterRegistrationActivity::class.java)) }
 
 
             //добавить проверку пароля из базы данных

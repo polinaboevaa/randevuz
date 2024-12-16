@@ -13,6 +13,10 @@
         android:theme="@style/Theme.Rande_vuz"
         tools:targetApi="31">
         <activity
+            android:name=".AfterRegistrationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_after_registration" />
+        <activity
             android:name=".WhereStudyActivity"
             android:exported="false" />
         <activity
