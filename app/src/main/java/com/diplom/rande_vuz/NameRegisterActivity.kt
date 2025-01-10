@@ -2,10 +2,16 @@ package com.diplom.rande_vuz
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.google.firebase.auth.FirebaseAuth
+import java.util.zip.Inflater
 
 class NameRegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +30,7 @@ class NameRegisterActivity : AppCompatActivity() {
                 startActivity(Intent(this, BirthDateActivity::class.java))
             }
         }
+
     }
+
 }
