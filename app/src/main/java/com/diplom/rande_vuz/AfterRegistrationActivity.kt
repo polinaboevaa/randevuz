@@ -29,7 +29,7 @@ class AfterRegistrationActivity : AppCompatActivity() {
                 R.id.navigation_message, R.id.navigation_lenta, R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
+        //navView.setupWithNavController(navController)
     }
 }
