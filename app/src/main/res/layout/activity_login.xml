@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:background="@drawable/upper"
-            android:hint="Телефон/email"
+            android:hint="E-mail"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:paddingStart="20dp"

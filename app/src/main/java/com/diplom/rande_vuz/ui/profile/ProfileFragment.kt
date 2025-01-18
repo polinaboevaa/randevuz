@@ -1,5 +1,6 @@
 package com.diplom.rande_vuz.ui.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,36 +8,46 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.diplom.rande_vuz.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var viewModel: ProfileViewModel
+    private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
-        _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        setupObservers()
+        setupEditProfile()
 
-        val textView: TextView = binding.textProfile
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    private fun setupObservers() {
+        viewModel.userProfile.observe(viewLifecycleOwner) { profile ->
+            profile?.let {
+                binding.textViewName.text = it.name
+                binding.textViewAge.text = it.age.toString()
+                binding.textViewUniversity.text = it.university
+                binding.textViewCourse.text = it.course
+                binding.textViewSkills.text = it.skills
+                binding.textViewAbout.text = it.about
+                Glide.with(this).load(it.photoUrl).into(binding.imageViewProfile)
+            }
+        }
+    }
+
+
+    private fun setupEditProfile() {
+        binding.buttonEditProfile.setOnClickListener {
+            val intent = Intent(context, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

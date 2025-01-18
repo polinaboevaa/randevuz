@@ -38,6 +38,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Некорректный почтовый адрес", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            else { //переделать проверку Firebase
+                val intent = Intent(this, AfterRegistrationActivity::class.java)
+                startActivity(intent)
+
+        }
 
 
         }

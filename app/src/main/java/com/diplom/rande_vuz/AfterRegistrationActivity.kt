@@ -5,7 +5,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.diplom.rande_vuz.databinding.ActivityAfterRegistrationBinding
 
@@ -29,7 +28,7 @@ class AfterRegistrationActivity : AppCompatActivity() {
                 R.id.navigation_message, R.id.navigation_lenta, R.id.navigation_profile
             )
         )
-        //setupActionBarWithNavController(navController, appBarConfiguration)
-        //navView.setupWithNavController(navController)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 }
