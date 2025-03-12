@@ -22,7 +22,7 @@ class WhereStudyActivity : AppCompatActivity() {
                 Toast.makeText(this, "Поле не должно быть пустым", Toast.LENGTH_SHORT).show()
             }
             else {
-                startActivity(Intent(this, AfterRegistrationActivity::class.java))
+                startActivity(Intent(this, SpecializationActivity::class.java))
             }
         }
     }

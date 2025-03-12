@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GoalActivity">
+
+    <!-- Фоновое изображение -->
+    <ImageView
+        android:id="@+id/reg_name_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/reg_back" />
+
+    <!-- Основной контейнер -->
+    <LinearLayout
+        android:id="@+id/goal_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722">
+
+        <!-- Заголовок -->
+        <TextView
+            android:id="@+id/textGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/adigiana_ultra"
+            android:gravity="center"
+            android:text="Какая у тебя цель?"
+            android:textColor="#243B65"
+            android:textSize="32sp" />
+
+        <!-- Контейнер для кнопок -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/goal_tutoring"
+                    style="@style/GoalButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Репетиторство" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/goal_work"
+                    style="@style/GoalButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Работа" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/goal_friendship"
+                    style="@style/GoalButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Дружба" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/goal_unknown"
+                    style="@style/GoalButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Не знаю"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Кнопка "Дальше" -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_btn"
+            style="@style/CustomButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="Дальше"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

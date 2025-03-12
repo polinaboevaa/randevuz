@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DescriptionActivity">
+
+    <!-- Фон -->
+    <ImageView
+        android:id="@+id/reg_name_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/reg_back" />
+
+    <!-- Основной контейнер -->
+    <LinearLayout
+        android:id="@+id/description_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.818">
+
+        <!-- Заголовок -->
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/adigiana_ultra"
+            android:gravity="center"
+            android:text="Расскажи о себе"
+            android:textColor="#243B65"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <!-- Поле ввода описания (многострочный текст) -->
+
+        <!-- Кнопка "Дальше" -->
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/description_input"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="top|start"
+            android:hint="Напиши несколько слов о себе, чтобы другие могли лучше узнать тебя :)"
+            android:textColor="#243B65"
+            android:background="@drawable/edit_text_background"
+            android:textSize="16sp"
+            android:scrollbars="vertical"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="4sp"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_btn"
+            style="@style/CustomButtonStyle"
+            android:layout_width="200dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="Дальше"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
