@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- диалоговое окно -->
+
     <!-- RecyclerView для отображения сообщений -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewMessages"
@@ -28,9 +30,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Введите сообщение"
-            android:padding="8dp"
             android:imeOptions="actionSend"
-            android:inputType="textCapSentences|textMultiLine" />
+            android:inputType="textCapSentences|textMultiLine"
+            android:minHeight="48dp"
+            android:padding="8dp" />
 
         <!-- Кнопка прикрепления файлов -->
         <ImageButton
