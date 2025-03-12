@@ -8,13 +8,16 @@
 
     <ImageView
         android:id="@+id/reg_name_back"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/icon"
-        />
+        app:layout_constraintWidth_max="400dp"
+        app:layout_constraintHeight_max="400dp"
+        app:srcCompat="@drawable/icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

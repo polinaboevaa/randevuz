@@ -6,60 +6,55 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-
+    <!-- Фон -->
     <ImageView
         android:id="@+id/image_back"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/login_back"/>
-
-
-    <LinearLayout
-        android:id="@+id/email_lin"
         android:layout_width="0dp"
-        android:layout_height="312dp"
-        android:layout_marginTop="130dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/login_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        >
+    <!-- Основной контейнер -->
+
+    <!-- Нижняя панель -->
+
+    <LinearLayout
+        android:id="@+id/email_lin"
+        android:layout_width="330dp"
+        android:layout_height="312dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658"
+        app:layout_constraintWidth_percent="0.85">
 
         <TextView
             android:id="@+id/textLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:fontFamily="@font/adigiana_ultra"
             android:text="Вход"
             android:textColor="#243B65"
-            android:textSize="50sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:textSize="50sp" />
 
         <EditText
             android:id="@+id/email"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:background="@drawable/upper"
             android:hint="E-mail"
             android:inputType="textEmailAddress"
-            android:minHeight="48dp"
             android:paddingStart="20dp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            android:textStyle="bold" />
 
         <Space
             android:layout_width="match_parent"
@@ -67,15 +62,13 @@
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:background="@drawable/upper"
             android:hint="Пароль"
             android:inputType="textPassword"
-            android:minHeight="48dp"
             android:paddingStart="20dp"
-            android:textStyle="bold"
-            tools:ignore="RtlSymmetry" />
+            android:textStyle="bold" />
 
         <Space
             android:layout_width="match_parent"
@@ -85,7 +78,7 @@
             android:id="@+id/regbutton"
             style="@style/CustomButtonStyle"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:text="Войти"
             android:textAllCaps="false"
             android:textSize="18sp" />
@@ -95,19 +88,20 @@
         android:id="@+id/linearLayout_to_reg"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_lin">
+        app:layout_constraintTop_toBottomOf="@id/email_lin"
+        app:layout_constraintWidth_percent="0.9">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Еще не знакомы?"
             android:textColor="#243B65"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
 
         <Button
             android:id="@+id/go_to_register_activity_tv"
@@ -118,7 +112,7 @@
             android:text="Зарегистрироваться"
             android:textAllCaps="false"
             android:textColor="#F46174"
-            android:textSize="15sp" />
+            android:textSize="15sp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
