@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,26 +14,65 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rande_vuz"
         tools:targetApi="31">
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false"
+            tools:ignore="ExportedService">
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
         <activity
-            android:name=".AfterRegistrationActivity"
+            android:name=".activities.AfterRegistrationActivity"
             android:exported="false"
             android:screenOrientation="portrait"
              />
         <activity
             android:screenOrientation="portrait"
-            android:name=".WhereStudyActivity"
+            android:name=".activities.WhereStudyActivity"
             android:exported="false" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".BirthDateActivity"
+            android:name=".activities.BirthDateActivity"
             android:exported="false" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".NameRegisterActivity"
+            android:name=".activities.NameRegisterActivity"
             android:exported="false" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".LoginActivity"
+            android:name=".activities.SpecializationActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.SkillsActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.ExtracurricularActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.WorkActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.GoalActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.DescriptionActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.PasswordRegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".activities.LoginActivity"
             android:exported="false" />
         <activity
             android:screenOrientation="portrait"
