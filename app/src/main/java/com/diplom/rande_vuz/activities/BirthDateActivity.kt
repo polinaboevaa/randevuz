@@ -1,4 +1,4 @@
-package com.diplom.rande_vuz
+package com.diplom.rande_vuz.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,14 +7,17 @@ import android.app.DatePickerDialog
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import android.content.Intent // Импортируем Intent
+import android.content.Intent
+import com.diplom.rande_vuz.R
+import com.diplom.rande_vuz.models.Month
+import com.diplom.rande_vuz.models.UserData
 import java.util.Calendar
 
 class BirthDateActivity : AppCompatActivity() {
 
+    private lateinit var userData: UserData
     private lateinit var datePickerDialog: DatePickerDialog
     private lateinit var dateButton: Button
-    private lateinit var nextButton: Button
     private var selectedDate: String? = null
 
     @SuppressLint("MissingInflatedId")
@@ -22,16 +25,22 @@ class BirthDateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_birth_date)
 
+        userData = intent.getSerializableExtra("userData") as? UserData ?: UserData()
+
         dateButton = findViewById(R.id.datePickerButton)
         val nextButton = findViewById<Button>(R.id.next_btn)
         initDatePicker()
-
+//TODO добавить проверку возраста
         nextButton.setOnClickListener {
-            if (selectedDate != null) {
-                val intent = Intent(this, WhereStudyActivity::class.java)
-                startActivity(intent)
-            } else {
+            userData.birthDate = dateButton.text.toString()
+
+            if (dateButton.text.toString() == getString(R.string.select_date)) {
                 Toast.makeText(this, "Дата не выбрана", Toast.LENGTH_SHORT).show()
+            } else {
+                Intent(this, WhereStudyActivity::class.java).apply {
+                    putExtra("userData", userData)
+                    startActivity(this)
+                }
             }
         }
     }
@@ -48,27 +57,13 @@ class BirthDateActivity : AppCompatActivity() {
             dateButton.text = selectedDate
         }, year, month, day)
     }
-
+// TODO наверное стоит вынести отсюда всю лишнюю логику обработки дат
     private fun makeDateString(day: Int, month: Int, year: Int): String {
         return "$day/${getMonthFormat(month)}/$year"
     }
 
     private fun getMonthFormat(month: Int): String {
-        return when (month) {
-            1 -> "январь"
-            2 -> "февраль"
-            3 -> "март"
-            4 -> "апрель"
-            5 -> "май"
-            6 -> "июнь"
-            7 -> "июль"
-            8 -> "август"
-            9 -> "сентябрь"
-            10 -> "октябрь"
-            11 -> "ноябрь"
-            12 -> "декабрь"
-            else -> "январь"
-        }
+        return Month.fromInt(month).displayName
     }
 
     fun openDatePicker(view: View) {

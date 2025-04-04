@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "937499962592",
-    "project_id": "randevuz-diplom",
-    "storage_bucket": "randevuz-diplom.firebasestorage.app"
+    "project_number": "489155417185",
+    "firebase_url": "https://randevuz-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "randevuz",
+    "storage_bucket": "randevuz.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:937499962592:android:5838303da1bca28bec3485",
+        "mobilesdk_app_id": "1:489155417185:android:9b05a7fd38e5329e488620",
         "android_client_info": {
           "package_name": "com.diplom.rande_vuz"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDFLeT2tmZB6g_TM8x9bPe-WH5hqQwiDxQ"
+          "current_key": "AIzaSyBntoupfJGcu5c-3XKJTMaz_Ev6NEqXOyg"
         }
       ],
       "services": {

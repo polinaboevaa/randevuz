@@ -1,4 +1,4 @@
-package com.diplom.rande_vuz
+package com.diplom.rande_vuz.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.diplom.rande_vuz.R
 import com.diplom.rande_vuz.databinding.ActivityAfterRegistrationBinding
 
 class AfterRegistrationActivity : AppCompatActivity() {
