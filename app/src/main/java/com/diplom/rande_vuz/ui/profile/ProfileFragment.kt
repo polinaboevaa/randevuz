@@ -36,7 +36,7 @@ class ProfileFragment : Fragment() {
                 binding.textViewAge.text = it.age.toString()
                 binding.textViewUniversity.text = it.university
                 binding.textViewCourse.text = it.course
-                binding.textViewSkills.text = it.skills
+                //binding.textViewSkills.text = it.skills
                 binding.textViewAbout.text = it.about
                 Glide.with(this).load(it.photoUrl).into(binding.imageViewProfile)
             }
